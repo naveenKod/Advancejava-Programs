@@ -1,0 +1,25 @@
+package com.kod.jdbc;
+import java.sql.*;
+public class JdbcProgram {
+
+	public static void main(String[] args) {
+    
+		String url = "jdbc:mysql://localhost:3306/myjdbcdb";
+		String username = "root";
+		String password = "ROOT";
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver loaded sucessfully");
+			
+			DriverManager.getConnection(url,username,password);
+			System.out.println("Connection is established");
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

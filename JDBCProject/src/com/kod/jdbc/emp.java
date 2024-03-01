@@ -1,0 +1,65 @@
+package com.kod.jdbc;
+
+import java.sql.*;
+import java.util.Scanner;
+public class emp {
+
+	public static void main(String[] args) {
+		String url="jdbc:mysql://localhost:3306/myjdbcdb";
+		String username="root";
+		String password="ROOT";
+		Connection con=null;
+		Statement stmt=null;
+		
+		try {
+			con=DriverManager.getConnection(url,username,password);
+			System.out.println("connection is established");
+			stmt=con.createStatement();
+			System.out.println("Statement is ready");
+			
+			Scanner scan=new Scanner(System.in);
+			System.out.println("Enter the choice");
+			int choice =scan.nextInt();
+			switch(choice) {
+			case 1: insert(stmt);
+			break;
+			case 2: update(stmt);
+			break;
+			case 3: delete(stmt);
+			break;
+			case 4: fetchData(stmt);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+		public static void insert(Statement stmt) throws Exception {
+			String query="INSERT INTO emp VALUES(1,'ANU',35000)";
+			stmt.execute(query);
+			System.out.println("Rows are inserted");
+			fetchData(stmt);
+		}
+		public static void update(Statement stmt) throws Exception{
+			String query="UPDATE emp SET emp_name='Anju' WHERE emp_id=1";
+			stmt.executeUpdate(query);
+			System.out.println("Rows are updated");
+			fetchData(stmt);
+			
+		}
+	
+	public  static void delete(Statement stmt) throws Exception{
+		String query="DELETE FROM emp where emp_id=2";
+		stmt.execute(query);
+		System.out.println("Rows are deleted");
+		fetchData(stmt);
+	}
+	public static void fetchData(Statement stmt) throws Exception{
+		String query="SELECT * FROM emp";
+		ResultSet rs=stmt.executeQuery(query);
+		while(rs.next()) {
+			System.out.println(rs.getInt(1)+" "+rs.getString(2+" "+rs.getInt(3)));
+		}
+	
+}
+}

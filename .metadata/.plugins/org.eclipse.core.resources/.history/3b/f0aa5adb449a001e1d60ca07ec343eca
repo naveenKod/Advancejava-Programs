@@ -1,0 +1,62 @@
+package com.kod.jdbc;
+import java.sql.*;
+import java.util.Scanner;
+public class Employee {
+
+	private static Connection con;
+
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+     String url ="jdbc:mysql://localhost:3306/myjdbcdb";
+     String username ="root ";
+     String password ="ROOT";
+     
+   
+   
+   
+     
+     try {
+    	 Class.forName("com.mysql.cj.jdbc.Dreiver");
+    	 System.out.println("Driver loaded sucessfully");
+    	 
+    	 DriverManager.getConnection(url,username,password);
+    	 System.out.println("Connection is established");
+    	 
+    	 Statement stmt=con.createStatement();
+			stmt.execute(query);
+			System.out.println("Query is executed");
+			
+    	 
+     }catch (Exception e) {
+    	 e.printStackTrace();
+     }
+     while(true) {
+    	 System.out.println("p1--INSERT");
+    	 System.out.println("P2--UPDATE");
+    	 System.out.println("P3--DELETE");
+    	 System.out.println("P4--FECTHDATA");
+    	 int choice=scan.nextInt();
+    	 
+     }
+	}
+public static void insert(Statement stmt) {
+	String query="INSERT INTO Emp VALUES";
+	try {
+		stmt.stmt.execute(query);
+		System.out.println("insert query is executed");
+
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+public static void update(Statement state) {
+  String query="UPDATE Emp SET NAME='Manu' WHERE id =2";
+  try {
+	  
+	  
+	  
+  }catch(Exception e) {
+	  e.printStackTrace();
+  }
+
+}
+}

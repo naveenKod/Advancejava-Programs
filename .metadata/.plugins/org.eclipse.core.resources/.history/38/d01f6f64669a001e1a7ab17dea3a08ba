@@ -1,0 +1,23 @@
+package com.kod.jdbc;
+import java.sql.*;
+public class demo {
+
+	public static void main(String[] args) {
+		String url="jdbc.mysql;//localHost:3360/myjdbcdb";
+		String username="root";
+		String password="ROOT";
+		String query="CREATE STUDENT TABLE";
+		try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("Driver loaded sucessfully");
+		
+		Connection con=DriverManager.getConnection(url,username,password);
+		System.out.println("Connection estanlished");
+		Statement stmt=con.createStatement();
+		
+     stmt.execute(query);
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+	}
+}

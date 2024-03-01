@@ -1,0 +1,20 @@
+package com.kod.CollectionFrameWork;
+
+import java.util.ArrayList;
+
+public class Student {
+	int roolno;
+	String name;
+ float percentage;
+public static void main(String[] args) {
+	Student s1=new Student();
+	Student s2=new Student();
+	Student s3=new Student();
+	ArrayList ar=new ArrayList();
+	ar.add(1);
+	ar.add("Adhitya");
+	ar.add(75.23);
+	System.out.println(ar);
+}
+}
+

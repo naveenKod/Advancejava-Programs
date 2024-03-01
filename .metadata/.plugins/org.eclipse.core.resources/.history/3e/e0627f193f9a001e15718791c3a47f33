@@ -1,0 +1,49 @@
+package com.kod.jdbc;
+import java.sql.*;
+public class Employee {
+
+	private static Connection con;
+
+	public static void main(String[] args) {
+     String url ="jdbc:mysql://localhost:3306/myjdbcdb";
+     String username ="root ";
+     String password ="ROOT";
+    String query="INSERT INTO Emp VALUES";
+    String query2="UPDATE Emp SET NAME='Ram' WHERE id=2";
+    String query3="DELETE FROM Emp WHERE id=2";
+    String query4="SELECT * FROM Emp";
+     
+     try {
+    	 Class.forName("com.mysql.cj.jdbc.Dreiver");
+    	 System.out.println("Driver loaded sucessfully");
+    	 
+    	 DriverManager.getConnection(url,username,password);
+    	 System.out.println("Connection is established");
+    	 
+    	 Statement stmt=con.createStatement();
+			stmt.execute(query);
+			System.out.println("Query is executed");
+			
+			Statement stmt2=con.createStatement();
+			stmt2.execute(query2);
+			System.out.println("Qyery 2 is executed");
+			
+			Statement stmt3=con.createStatement();
+			stmt3.execute(query3);
+			System.out.println("Qyery 3 is executed");
+			
+			Statement stmt4=con.createStatement();
+			stmt4.execute(query4);
+			System.out.println("Qyery 4 is executed");
+    	 
+    	 
+    	 
+     }catch (Exception e) {
+    	 e.printStackTrace();
+     }
+     
+		
+		
+	}
+
+}

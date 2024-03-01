@@ -1,0 +1,6 @@
+package com.kod.jdbc;
+import java.sql.*;
+public class demo {
+
+	
+}
